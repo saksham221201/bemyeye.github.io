@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if request.path == '/home/' %} Be My Eye - Home {% endif %}{% if request.path == '/about/' %} Be My Eye - About {% endif %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background: url('/static/background.jpg');
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ADMIN LOGIN Modal Starts Here -->
+    <!-- <div class="modal fade" id="AdminModal" tabindex="-1" aria-labelledby="AdminModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="AdminModalLabel">Admin Login</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="/login" method="POST">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="loginusername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="loginusername" name="loginusername"/>
+              </div>
+              <div class="mb-3">
+                <label for="loginpassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginpassword" name="loginpassword"/>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- ADMIN LOGIN Modal Ends Here -->
+
+
+<!-- ADMIN SignUp Modal Starts Here -->
+<!-- <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="AdminModal" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="AdminModalLabel">Admin SignUp</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form action="/signup" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="signupusername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="signupusername" name="signupusername"/>
+        </div>
+        <div class="mb-3">
+          <label for="signupemail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="signupemail" name="signupemail"/>
+        </div>
+        <div class="mb-3">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="fname" name="fname"/>
+        </div>
+        <div class="mb-3">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lname" name="lname"/>
+        </div>
+        <div class="mb-3">
+          <label for="signuppassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="signuppassword" name="signuppassword"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div> -->
+<!-- ADMIN SignUp Modal Ends Here -->
+
+
+    <!-- COMPANY LOGIN Modal Starts Here -->
+    <!-- <div class="modal fade" id="CompanyModal" tabindex="-1" aria-labelledby="CompanyModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="CompanyModalLabel">Company Login</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username"/>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password"/>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- COMPANY LOGIN Modal Ends Here -->
+
+    <!-- Navbar Starts Here -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Be My Eye</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/' %} active {% endif %}" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/about/' %} active {% endif %}" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/highlights/' %} active {% endif %}" aria-current="page" href="/highlights">Highlights</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/developers/' %} active {% endif %}" aria-current="page" href="/developers">Developers</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Companies
+              </a>
+              <ul class="dropdown-menu">
+                {% for i in data %}
+                <li><a class="dropdown-item" href="/">{{i.company_name}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+          </ul>
+          
+          {% if user.is_authenticated %}
+          <span class="badge text-bg-primary mx-2">{{request.user}}</span>
+          <a href="/logout"><button class="btn btn-outline-danger mx-1 float-end">Logout</button></a>
+          
+          {% else %}
+          <button class="btn btn-success mx-1 float-end" data-bs-toggle="modal" data-bs-target="#CompanyModal">Company Login</button>
+          <!-- <a href="/companySignUp" class="float-end"><button class="btn btn-success mx-1">Company Sign Up</button></a> -->
+          <button class="btn btn-success mx-1 float-end" data-bs-toggle="modal" data-bs-target="#SignUpModal">Admin SignUp</button>
+          <button class="btn btn-success mx-1 float-end" data-bs-toggle="modal" data-bs-target="#AdminModal">Admin Login</button>
+
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar Ends Here -->
+
+    <!-- Alert Starts Here -->
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>Message: </strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <!-- Alert Ends Here -->
+
+
+  <h1 class="text-white text-center">BE MY EYE</h1>
+  <h5 class="text-white text-center"><i>Help The People See Through Others Eye</i></h5>
+  <div class="container my-4 text-white">
+  <h3>Add an Item to Database</h3>
+  <form method="POST" action="{% url 'saveInformation' %}" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="title">Item Name</label>
+      <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" minlength="4" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company Name</label>
+      <input type="text" class="form-control" id="company" name="company" minlength="5" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Category</label>
+      <input type="text" class="form-control" id="category" name="category" minlength="2" required>
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Item Description</label>
+      <textarea class="form-control" id="description" name="description" rows="3" minlength="10" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="cost">Cost</label>
+      <input type="number" class="form-control" id="cost" name="cost" required>
+    </div>
+
+    <div class="form-group">
+      <label for="manudate">Item Manufacturing Date</label>
+      <input class="form-control" type="date" id="manudate" name="manudate" required>
+    </div>
+    <div class="form-group">
+      <label for="expdate">Item Expiry Date</label>
+      <input class="form-control" type="date" id="expdate" name="expdate" required>
+    </div>
+    <!-- <div class="form-group">
+      <label for="img">Select image:</label>
+      <input class="form-control" type="file" id="img" name="img" accept="/media/">
+      <button type="submit" class="btn btn-primary mt-2">Primary</button>
+    </div> -->
+    <button type="submit" class="btn mt-3 btn-success">Add Item</button>
+  </form>
+  </div>
+
+
+  <div class="container my-4">
+
+    <form class="d-flex mb-2 float-end" method="GET" role="search">
+      <input class="form-control me-2" name="titlesearch" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    
+  <table class="table text-white" id="myTable">
+    <thead>
+      <tr>
+        <th scope="col">S.no</th>
+        <th scope="col">Name</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Manufacturing Date</th>
+        <th scope="col">Expiry Date</th>
+        <th scope="col">QR Code</th>
+        <!-- <th scope="col">Actions</th> -->
+      </tr>
+    </thead>
+    {% for product in informationData %}
+    <tr>
+      <td><b>{{product.id}}</b></td>
+      <td><b>{{product.product_name | capfirst}}</b></td>
+      <td><b>{{product.company_name | capfirst}}</b></td>
+      <td><b>{{product.product_description | capfirst}}</b></td>
+      <td><b>₹{{product.product_cost | capfirst}}</b></td>
+      <td><b>{{product.manu_date}}</b></td>
+      <td><b>{{product.exp_date}}</b></td>
+      <td><a href="http://127.0.0.1:8000/media/{{product.qr_code}}" target="_blank"><img src="/media/{{product.qr_code}}" class="img-fluid" width="150px" height="100px"/></a></td>
+      <td style='white-space: nowrap'>
+        <!-- <button class='edit btn btn-sm btn-primary' data-bs-toggle='modal' data-bs-target='#editModal'>Edit</button>
+        <button class='delete btn btn-sm btn-alert mx-2' style="background-color: red; color: white;">Delete</button></td> -->
+      <!-- <a href='https://chart.googleapis.com/chart?cht=qr&chl=The+Name+Of+The+Product+Is+".$rows['title'].". The+Company+Of+The+Product+Is+".$rows['companyName'].". ".$rows['description'].". The+Cost+Of+The+Product+Is+".$rows['Cost']."+Rupees. The+Manufacturing+Date+Of+The+Product+Is+".$rows['ManufacturingDate'].". The+Expiry+Date+Of+The+Product+Is+".$rows['ExpiryDate'].".&chs=160x160&chld=L|0' target='_blank' class='btn btn-primary'>QR Code</a> -->
+    </tr>
+  </div>
+    {% empty %}
+      <div class="alert alert-danger" role="alert">
+        No Data Found!!
+      </div>
+    {% endfor %}
+    <tbody>
+      <nav aria-label="...">
+        <ul class="pagination">
+          {% if informationData.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="/home?page=1">First</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="/home?page={{informationData.previous_page_number}}">Previous</a>
+          </li>
+          {% endif %}
+
+          {% for i in totalPageList %}
+          <li class="page-item">
+            <a class="page-link" href="/home?page={{i}}">{{i}}</a>
+          </li>
+          {% endfor %}
+
+          {% if informationData.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="/home?page={{informationData.next_page_number}}">Next</a>
+          </li>
+
+          <li class="page-item">
+            <a class="page-link" href="/home?page={{lastPage}}">Last</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    <!-- <script>
+    edits = document.getElementsByClassName('edit');
+    Array.from(edits).forEach((element) => {
+      element.addEventListener("click", (e) => {
+        // console.log("edit ");
+        tr = e.target.parentNode.parentNode;
+        title = tr.getElementsByTagName("td")[1].innerText;
+        company = tr.getElementsByTagName("td")[2].innerText;
+        description = tr.getElementsByTagName("td")[3].innerText;        
+        cost = tr.getElementsByTagName("td")[4].innerText;
+        console.log(cost);
+        manudate = tr.getElementsByTagName("td")[5].innerText;
+        expdate = tr.getElementsByTagName("td")[6].innerText;
+        // console.log(title, description, cost);
+        titleEdit.value = title;
+        companyEdit.value = company;
+        descriptionEdit.value = description;
+        costEdit.value = cost;
+        manudateEdit.value = manudate;
+        expdateEdit.value = expdate;
+        snoEdit.value = e.target.id;
+      })
+    })
+</script> -->
+<div class="container-fluid bg-dark text-light fixed-bottom">
+  <p class="text-center mb-0">Copyright BeMyEye 2022 | All Rights Reserved</p>
+</div>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+crossorigin="anonymous"
+></script>
+</body>
+</html>

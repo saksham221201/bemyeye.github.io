@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-center mt-2">Our HighLights</h1>
+<div class="container my-4">
+    <h2 class="my-2">Companies Associated With Us</h2>
+    {% for i in companyData %}
+    <div class="shadow p-3 mb-3 bg-body rounded mt-3"><b>{{i.company_name}}</b></div>
+    {% endfor %}
+</div>
+
+<div class="container my-4">
+    <h2 class="my-2">Categories</h2>
+    {% for i in categoryData %}
+    <div class="shadow p-3 mb-3 bg-body rounded mt-3"><b>{{i.product_category}}</b></div>
+    {% endfor %}
+</div>
+
+{% endblock %}
