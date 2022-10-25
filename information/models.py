@@ -31,7 +31,7 @@ class Information(models.Model):
         os.system("satic/audio/"+self.product_name+".mp3") 
 
         qrcode_img = qrcode.make("https://helpothers-bemyeye.herokuapp.com/static/audio/"+self.product_name+".mp3")
-        canvas = Image.new('RGB', (500, 500), 'white')
+        canvas = Image.new('RGB', (450, 450), 'white')
         # draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
         fname = f'qr_code-{self.product_name}.png'
