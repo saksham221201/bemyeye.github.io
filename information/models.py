@@ -28,7 +28,7 @@ class Information(models.Model):
         language="en"
         myobj=gTTS(text=summary,lang=language,slow=False)
         myobj.save("static/audio/"+self.product_name+".mp3") 
-        os.system("satic/audio/"+self.product_name+".mp3") 
+        os.system("static/audio/"+self.product_name+".mp3") 
 
         qrcode_img = qrcode.make("https://helpothers-bemyeye.herokuapp.com/static/audio/"+self.product_name+".mp3")
         canvas = Image.new('RGB', (450, 450), 'white')
