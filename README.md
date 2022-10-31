@@ -1,2 +1,2 @@
 # bemyeye
-## a project for blind peoples
+## project for blind peoples
