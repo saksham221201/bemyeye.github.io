@@ -1,2 +1,2 @@
 # bemyeye
-A college project for blind peoples
+# A college project for blind peoples
