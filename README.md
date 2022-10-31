@@ -1,2 +1,2 @@
-# bemyeye.github.io
-## college project
+# bemyeye
+## a project for blind peoples
